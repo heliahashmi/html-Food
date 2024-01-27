@@ -20,7 +20,71 @@
     <!-- icon -->
     <script src="https://kit.fontawesome.com/2a77f2045c.js" crossorigin="anonymous"></script>
     <script src="js.js"></script>
+
+    <style>
+        .hover {
+            cursor: pointer;
+            position: relative;
+            background: white;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            transition: all 1s;
+
+            &:after,
+            &:before {
+                content: " ";
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                border: 0px solid #fff;
+                transition: all 1s;
+            }
+
+            &:after {
+                top: -1px;
+                left: -1px;
+                border-top: 5px solid black;
+                border-left: 5px solid black;
+            }
+
+            &:before {
+                bottom: -1px;
+                right: -1px;
+                border-bottom: 5px solid black;
+                border-right: 5px solid black;
+            }
+
+            &:hover {
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+                background: rgba(0, 0, 0, .5);
+                color: white;
+
+                &:before,
+                &:after {
+                    width: 100%;
+                    height: 100%;
+                    border-color: white;
+                }
+            }
+        }
+
+        .hover-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-purple {
+            background-color: mediumpurple;
+        }
+
+        .btn-purple:hover {
+            background-color: rebeccapurple;
+        }
+    </style>
 </head>
+
 <body>
     <!-- start header -->
     <header class="header">
@@ -403,119 +467,145 @@
         </div>
     </section>
     <!-- end Reservation -->
-
-    <!-- start footer -->
-    <footer class="footer">
-        <div class="cantianer">
-            <div class="footer_titels">
-                <div class="footer_titel">
-                    <span>Contact</span>
-                    <ul class="Contact">
-                        <li>
-                            <p class="epi">Lorem ipsum dolor sit amet, consectet adipis cing elit. Curabitur venenatis.
-                            </p>
-                        </li>
-                        <li>
-                            <address>
-                                1528 Broadway, New York, NY 10036, United States
-                                +12 34 567 891 23 email@your.domain
-                            </address>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer_titel">
-                    <span>Working</span>
-                    <ul class="Working  epi">
-                        <li>Monday 9:00 - 24:00</li>
-
-                        <li>Tuesday 9:00 - 24:00</li>
-
-                        <li>Wednesday 9:00 - 24:00</li>
-
-                        <li>Thursday 9:00 - 24:00</li>
-
-                        <li>Friday 9:00 - 02:00</li>
-
-                        <li>Saturday 9:00 - 02:00</li>
-
-                        <li>Sunday CLOSED</li>
-                    </ul>
-                </div>
-
-                <div class="footer_titel">
-                    <span>Help</span>
-                    <ul class="Help  epi">
-                        <li>
-                            <a href="">Returns & Exchanges</a>
-                        </li>
-
-                        <li>
-                            <a href="">Customer Service</a>
-                        </li>
-
-                        <li>
-                            <a href="">Privacy Policy</a>
-                        </li>
-
-                        <li>
-                            <a href="">Terms of Use</a>
-                        </li>
-
-                        <li>
-                            <a href="">FAQ</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer_titel">
-                    <span>Get in Touch</span>
-                    <ul class="GetinTouch  epi">
-                        <li>
-                            <a href="">
-                                <i class="fa-brands fa-square-facebook fa-2xl"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="">
-                                <i class="fa-brands fa-square-twitter fa-2xl"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="">
-                                <i class="fa-brands fa-square-instagram fa-2xl"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="cantianer">
-            <div class="end_items">
-                <div class="end_item_text">
-                    <span class="epi">2022. Burgera by ThemeOY. All rights reserved.</span>
-                </div>
-                <div class="end_item_link">
-                    <a href="">ABout us</a>
-                    <a href=""> Blog</a>
-                    <a href="">Cart</a>
-                    <a href="">Checkout</a>
-                    <a href="">Contact</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- end footer -->
-    <!-- start up -->
-    <div class="up">
-        <a href="#top">
-            <i class="fa-solid fa-angle-up"></i>
-        </a>
+    <!-- form -->
+    <div class="container" style="margin: 140px;">
+        <form>
+            <form class="d-flex justify-content-center text-start">
+                <form style="border:2px solid mediumpurple;width: 35%;"
+                    class="my-5 py-5  rounded-4 shadow d-flex flex-column justify-content-start align-items-start">
+                    <div class="mb-3 hover-box">
+                        <span class="px-2">first order:</span>
+                        <input class="hover" type="text" id="txt1"><br>
+                    </div>
+    
+                    <div class="mb-3 hover-box">
+                        <span class="px-2">second order :</span>
+                        <input class="hover" type="text" id="txt2"><br>
+                    </div>
+    
+                    <div class="mb-3 hover-box">
+                        <span class="px-2">total price :</span>
+                        <input class="hover" type="text" id="txt3"><br>
+                    </div>
+                </form>
+                <input style="margin-left: 460px; margin-top: 30px;" type="button" value="price" onclick="price()">
     </div>
-    <!-- end up -->
+    
+            <!-- end form -->
+
+            <!-- start footer -->
+            <footer class="footer">
+                <div class="cantianer">
+                    <div class="footer_titels">
+                        <div class="footer_titel">
+                            <span>Contact</span>
+                            <ul class="Contact">
+                                <li>
+                                    <p class="epi">Lorem ipsum dolor sit amet, consectet adipis cing elit. Curabitur
+                                        venenatis.
+                                    </p>
+                                </li>
+                                <li>
+                                    <address>
+                                        1528 Broadway, New York, NY 10036, United States
+                                        +12 34 567 891 23 email@your.domain
+                                    </address>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="footer_titel">
+                            <span>Working</span>
+                            <ul class="Working  epi">
+                                <li>Monday 9:00 - 24:00</li>
+
+                                <li>Tuesday 9:00 - 24:00</li>
+
+                                <li>Wednesday 9:00 - 24:00</li>
+
+                                <li>Thursday 9:00 - 24:00</li>
+
+                                <li>Friday 9:00 - 02:00</li>
+
+                                <li>Saturday 9:00 - 02:00</li>
+
+                                <li>Sunday CLOSED</li>
+                            </ul>
+                        </div>
+
+                        <div class="footer_titel">
+                            <span>Help</span>
+                            <ul class="Help  epi">
+                                <li>
+                                    <a href="">Returns & Exchanges</a>
+                                </li>
+
+                                <li>
+                                    <a href="">Customer Service</a>
+                                </li>
+
+                                <li>
+                                    <a href="">Privacy Policy</a>
+                                </li>
+
+                                <li>
+                                    <a href="">Terms of Use</a>
+                                </li>
+
+                                <li>
+                                    <a href="">FAQ</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="footer_titel">
+                            <span>Get in Touch</span>
+                            <ul class="GetinTouch  epi">
+                                <li>
+                                    <a href="">
+                                        <i class="fa-brands fa-square-facebook fa-2xl"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="">
+                                        <i class="fa-brands fa-square-twitter fa-2xl"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="">
+                                        <i class="fa-brands fa-square-instagram fa-2xl"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="cantianer">
+                    <div class="end_items">
+                        <div class="end_item_text">
+                            <span class="epi">2022. Burgera by ThemeOY. All rights reserved.</span>
+                        </div>
+                        <div class="end_item_link">
+                            <a href="">ABout us</a>
+                            <a href=""> Blog</a>
+                            <a href="">Cart</a>
+                            <a href="">Checkout</a>
+                            <a href="">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end footer -->
+            <!-- start up -->
+            <div class="up">
+                <a href="#top">
+                    <i class="fa-solid fa-angle-up"></i>
+                </a>
+            </div>
+            <!-- end up -->
 </body>
 
 </html>
